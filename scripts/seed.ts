@@ -13,17 +13,17 @@ import type { ResourceInput, OperatingHours } from '../lib/types';
 
 // Load environment variables
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-if (!supabaseUrl || !supabaseServiceKey) {
+if (!supabaseUrl || !supabaseKey) {
   console.error('Missing required environment variables:');
   console.error('- NEXT_PUBLIC_SUPABASE_URL');
-  console.error('- SUPABASE_SERVICE_ROLE_KEY');
+  console.error('- NEXT_PUBLIC_SUPABASE_ANON_KEY');
   console.error('\nCreate a .env.local file with your Supabase credentials.');
   process.exit(1);
 }
 
-const supabase = createClient(supabaseUrl, supabaseServiceKey);
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Helper to create 24/7 hours
 const hours24_7: OperatingHours = {
