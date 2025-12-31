@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import type {
   Resource,
   ResourceType,
@@ -272,12 +273,20 @@ export default function AdminPage() {
                 Manage food resources across New Orleans
               </p>
             </div>
-            <button
-              onClick={handleAddNew}
-              className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
-            >
-              + Add Resource
-            </button>
+            <div className="flex gap-3">
+              <Link
+                href="/admin/contacts"
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+              >
+                Contacts & Partners
+              </Link>
+              <button
+                onClick={handleAddNew}
+                className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
+              >
+                + Add Resource
+              </button>
+            </div>
           </div>
         </div>
       </header>

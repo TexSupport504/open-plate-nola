@@ -165,3 +165,116 @@ export const STATUS_COLORS: Record<ResourceStatus, string> = {
   temporarily_closed: 'bg-gray-500',
   permanently_closed: 'bg-gray-800',
 };
+
+// ============================================
+// Contact Types for Stakeholder Management
+// ============================================
+
+export type ContactCategory =
+  | 'restaurant'
+  | 'hotel'
+  | 'catering'
+  | 'grocery'
+  | 'food_bank'
+  | 'volunteer'
+  | 'tech_partner'
+  | 'city_official'
+  | 'nonprofit'
+  | 'donor'
+  | 'media'
+  | 'community_leader'
+  | 'other';
+
+export type ContactStatus =
+  | 'prospect'
+  | 'contacted'
+  | 'in_discussion'
+  | 'committed'
+  | 'active'
+  | 'inactive'
+  | 'declined';
+
+export interface Contact {
+  id: string;
+  first_name: string;
+  last_name: string;
+  email: string | null;
+  phone: string | null;
+  organization: string | null;
+  role: string | null;
+  category: ContactCategory;
+  status: ContactStatus;
+  address: string | null;
+  neighborhood: string | null;
+  notes: string | null;
+  last_contact_date: string | null;
+  next_followup_date: string | null;
+  can_provide_food: boolean;
+  can_provide_space: boolean;
+  can_provide_volunteers: boolean;
+  can_provide_funding: boolean;
+  can_provide_tech_help: boolean;
+  can_provide_connections: boolean;
+  added_by: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface ContactInput {
+  first_name: string;
+  last_name: string;
+  email?: string | null;
+  phone?: string | null;
+  organization?: string | null;
+  role?: string | null;
+  category: ContactCategory;
+  status?: ContactStatus;
+  address?: string | null;
+  neighborhood?: string | null;
+  notes?: string | null;
+  last_contact_date?: string | null;
+  next_followup_date?: string | null;
+  can_provide_food?: boolean;
+  can_provide_space?: boolean;
+  can_provide_volunteers?: boolean;
+  can_provide_funding?: boolean;
+  can_provide_tech_help?: boolean;
+  can_provide_connections?: boolean;
+  added_by?: string | null;
+}
+
+export const CONTACT_CATEGORY_LABELS: Record<ContactCategory, string> = {
+  restaurant: 'Restaurant',
+  hotel: 'Hotel',
+  catering: 'Catering Company',
+  grocery: 'Grocery Store',
+  food_bank: 'Food Bank',
+  volunteer: 'Volunteer',
+  tech_partner: 'Tech Partner',
+  city_official: 'City Official',
+  nonprofit: 'Nonprofit',
+  donor: 'Donor/Sponsor',
+  media: 'Media',
+  community_leader: 'Community Leader',
+  other: 'Other',
+};
+
+export const CONTACT_STATUS_LABELS: Record<ContactStatus, string> = {
+  prospect: 'Prospect',
+  contacted: 'Contacted',
+  in_discussion: 'In Discussion',
+  committed: 'Committed',
+  active: 'Active Partner',
+  inactive: 'Inactive',
+  declined: 'Declined',
+};
+
+export const CONTACT_STATUS_COLORS: Record<ContactStatus, string> = {
+  prospect: 'bg-gray-400',
+  contacted: 'bg-blue-400',
+  in_discussion: 'bg-yellow-500',
+  committed: 'bg-green-400',
+  active: 'bg-green-600',
+  inactive: 'bg-gray-500',
+  declined: 'bg-red-400',
+};
